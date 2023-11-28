@@ -61,6 +61,16 @@ app.get('/:slug',async (req,res)=>{
         })
     }
     res.redirect(link.url);
+});
+
+app.get("/api/link", async(req,res)=>{
+    const links = await Link.find({});
+
+    return res.json({
+        success:true,
+        data:links,
+        Message:'Links fetched successfully'
+    })
 })
 
 const PORT = process.env.PORT || 5000;
