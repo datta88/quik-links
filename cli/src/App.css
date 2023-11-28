@@ -1,0 +1,50 @@
+.app-title{
+  text-align: center;
+}
+.app-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.link-generation-card{
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.user-input{
+  width: 325px;
+  margin-bottom: 40px;
+  font-size: 25px;
+  border-radius: 30px;
+  padding: 4px 20px;
+  display: block;
+}
+.btn-generate-link{
+  display: block;
+  background: #000;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px auto;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 200;
+}
+.input-short-url{
+  width: 325px;
+  font-size: 25px;
+  border-radius: 30px;
+  padding: 4px 20px;
+}
+.short-url-container{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+.copy-icon{
+  height: 50px;
+  cursor: pointer;  
+}
