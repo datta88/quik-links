@@ -35,7 +35,7 @@ function App() {
         <h1 className='app-title'>Quick Link</h1>
         <div className='app-container'>
           <div className='link-generation-card'>
-            <h2>Link Generation</h2>
+            <h2 className='app-title-center'>Link Generation</h2>
             <div className='input-container'>
               <input type='text'
                 className='user-input'

@@ -1,5 +1,16 @@
 .app-title{
   text-align: center;
+ font-weight: 400;
+ font-size: 45px;
+ border-bottom: 3px solid black;
+ width: fit-content;
+ display: block;
+ margin: 10px auto;
+}
+.app-title-center{
+  text-align: center;
+ font-weight: 400;
+ font-size: 30px;
 }
 .app-container{
   display: flex;
