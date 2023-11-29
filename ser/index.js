@@ -54,8 +54,9 @@ app.get('/:slug',async (req,res)=>{
     const link = await Link.findOne({slug: slug});
 
     await Link.updateOne({slug:slug}, {$set:{
-        clicks: link.clicks + 1
-    }})
+        clicks: link?.clicks + 1 || 0
+    }}
+    )
 
     if(!link){
         return res.json({
@@ -77,10 +78,10 @@ app.get("/api/link", async(req,res)=>{
 });
 
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+    app.use(express.static(path.join(__dirname, '..', 'cli', 'build')));
 
     app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+        res.sendFile(path.join(__dirname, '..', 'cli', 'build', 'index.html'))
     })
 }
 
