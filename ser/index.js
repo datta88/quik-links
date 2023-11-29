@@ -1,11 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Link from './model/Link.js';
+import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+const __dirname = path.resolve();
 
 const connectDB = async () => {
     const conn = await mongoose.connect(process.env.MONGODB_URI);
@@ -71,7 +74,15 @@ app.get("/api/link", async(req,res)=>{
         data:links,
         Message:'Links fetched successfully'
     })
-})
+});
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+    app.get('*',(req,res)=>{
+        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+    })
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, ()=>{
